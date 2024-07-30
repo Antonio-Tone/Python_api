@@ -1,13 +1,13 @@
 from flask import Flask
+from flask_cors import CORS
 import os
 from dotenv import load_dotenv
-
 # Load environment variables from .env file
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app, origins=['http://localhost:3000'])
 
-# Import the blueprint
 # Import the blueprint
 from routes.users import users_bp
 from routes.movies import movies_bp
