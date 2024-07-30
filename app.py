@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -17,4 +18,5 @@ app.register_blueprint(movies_bp, url_prefix='/api')
 app.register_blueprint(orders_bp, url_prefix='/api')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
